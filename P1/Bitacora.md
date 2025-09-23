@@ -37,4 +37,4 @@ Teniendo en cuenta los conceptos anteriores se puede proponer un diseño para el
 
 De forma esquemática, el diseño queda de esta forma:  
 
-![DiseñoP1L1](img/P1L1.png)
+![DiseñoP1L1](../img/P1L1.png)

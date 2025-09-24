@@ -49,6 +49,7 @@ Se usará VirtualBox para simular el sistema y Debian como sistema operativo. El
 
 Una vez creada la máquina, antes de encenderla, se procede a su configuración. En el apartado de almacenamiento, y para seguir con la filosofía RAID1, se crea un nuevo disco de 10GB (en el caso de ser de más capacidad, la capacidad total del RAID seguiría siendo 10GB). En este punto ya se tienen ambos discos propuestos en el diseño: sda y sdb.  
 
+Ahora, convendría configurar la red. Para ello, desde VBox Archivo -> Herramientas -> Red (o bien, ctrl + h), se crea una red solo anfitrión con un nombre arbitrario (en este caso en particular vboxnet0). Volviendo ahora a la configuración de la máquina, en el apartado de Red, se añade un adaptador nuevo conectando a "Adaptador solo anfitrión".
 
-Ahora, convendría configurar la red. Para ello, desde VBox Archivo -> Herramientas -> Read (o bien, ctrl + h), se crea una red solo anfitrión con un nombre arbitrario (en este caso en particular vboxnet0). Volviendo ahora a la configuración de la máquina, en el apartado de Red, se añade un adaptador nuevo conectando a "Adaptador solo anfitrión".
-
+| ![AlmacenamientoVB](../img/P1L1_VB_1.png) | ![AlmacenamientoVB](../img/P1L1_VB_1.png) |
+|----------------------|----------------------|

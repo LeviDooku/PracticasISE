@@ -38,3 +38,17 @@ Teniendo en cuenta los conceptos anteriores se puede proponer un diseño para el
 De forma esquemática, el diseño queda de esta forma:  
 
 ![DiseñoP1L1](../img/P1L1.png)
+
+### Implementación del sistema
+
+Se usará VirtualBox para simular el sistema y Debian como sistema operativo. El primer paso tras descargar la ISO del SO será crear una nueva máquina virtual en el programa con las siguientes características:  
+
+- 2GB de RAM (con 500MB sería suficiente)
+- 1 procesador
+- 10GB de almacenamiento
+
+Una vez creada la máquina, antes de encenderla, se procede a su configuración. En el apartado de almacenamiento, y para seguir con la filosofía RAID1, se crea un nuevo disco de 10GB (en el caso de ser de más capacidad, la capacidad total del RAID seguiría siendo 10GB). En este punto ya se tienen ambos discos propuestos en el diseño: sda y sdb.  
+
+
+Ahora, convendría configurar la red. Para ello, desde VBox Archivo -> Herramientas -> Read (o bien, ctrl + h), se crea una red solo anfitrión con un nombre arbitrario (en este caso en particular vboxnet0). Volviendo ahora a la configuración de la máquina, en el apartado de Red, se añade un adaptador nuevo conectando a "Adaptador solo anfitrión".
+

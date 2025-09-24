@@ -51,4 +51,5 @@ Una vez creada la máquina, antes de encenderla, se procede a su configuración.
 
 Ahora, convendría configurar la red. Para ello, desde VBox Archivo -> Herramientas -> Red (o bien, ctrl + h), se crea una red solo anfitrión con un nombre arbitrario (en este caso en particular vboxnet0). Volviendo ahora a la configuración de la máquina, en el apartado de Red, se añade un adaptador nuevo conectando a "Adaptador solo anfitrión".
 
-| ![AlmacenamientoVB](../img/P1L1_VB_1.png) | ![AlmacenamientoVB](../img/P1L1_VB_1.png) |
+| ![AlmacenamientoVB](../img/P1L1_VB_1.png) | ![RedVB](../img/P1L1_VB_2.png) |
+|----------------------|----------------------|

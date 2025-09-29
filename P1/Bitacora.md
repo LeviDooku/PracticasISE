@@ -68,9 +68,16 @@ Para aplicar el diseño en orden ascendente, primero se crea la partición para 
 
 ![/boot](../img/P1L1/P1L1_Ma_5.png)
 
-Una vez hecho esto, se puede pasar a configurar el RAID1 para el /boot. Para ello se selecciona la opción de "Configurar RAID por software", y se crea con las dos particiones anteriores las de 400MB. Una vez creado, debe quedar como en la primera captura. Seleccionamos esta partición del RAID y ya se puede montar el /boot, porque no se tocará más este almacenamiento.
+Una vez hecho esto, se puede pasar a configurar el RAID1 para el /boot. Para ello se selecciona la opción de "Configurar RAID por software", y se crea con las dos particiones anteriores las de 400MB. Una vez creado, debe quedar como en la primera captura. Seleccionamos esta partición del RAID y ya se puede montar el /boot, porque no se tocará más este almacenamiento. En la última captura de esta tira, se observa que el espacio libre que se tenía (10.3GB) se ha configurado como una partición primaria, que ocupa todo el espacio disponible y que de nuevo, se ha seleccionado "no utilizar"
 
 | ![RAID_Boot](../img/P1L1/P1L1_Ma_6.png) | ![Montar_/boot](../img/P1L1/P1L1_Ma_7.png) | ![Resultado](../img/P1L1/P1L1_Ma_8.png) |
 |----------------------|----------------------|----------------------|
 
+Continuando con el diseño, las dos particiones disponibles se configuran en otro RAID1.
 
+![/boot](../img/P1L1/P1L1_Ma_9.png)
+
+Posteriormente, se abre el gestor de Volúmenes Lógicos y se crean md0 y md1, el primero con /boot y el otro con el espacio libre en el RAID que se creó anteriormente. Se cifra el md1, siguiendo con el diseño. Se puede ver el resultado en la segunda captura
+
+| ![Cifrado](../img/P1L1/P1L1_Ma_10.png) | ![Resultado](../img/P1L1/P1L1_Ma_11.png) |
+|----------------------|----------------------|

@@ -37,7 +37,7 @@ Teniendo en cuenta los conceptos anteriores se puede proponer un diseño para el
 
 De forma esquemática, el diseño queda de esta forma:  
 
-![DiseñoP1L1](../img/P1L1.png)
+![DiseñoP1L1](../img/P1L1/P1L1.png)
 
 ### Implementación del sistema
 
@@ -51,5 +51,5 @@ Una vez creada la máquina, antes de encenderla, se procede a su configuración.
 
 Ahora, convendría configurar la red. Para ello, desde VBox Archivo -> Herramientas -> Red (o bien, ctrl + h), se crea una red solo anfitrión con un nombre arbitrario (en este caso en particular vboxnet0). Volviendo ahora a la configuración de la máquina, en el apartado de Red, se añade un adaptador nuevo conectando a "Adaptador solo anfitrión".
 
-| ![AlmacenamientoVB](../img/P1L1_VB_1.png) | ![RedVB](../img/P1L1_VB_2.png) |
+| ![AlmacenamientoVB](../img/P1L1/P1L1_VB_1.png) | ![RedVB](../img/P1L1/P1L1_VB_2.png) |
 |----------------------|----------------------|

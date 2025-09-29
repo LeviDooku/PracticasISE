@@ -53,3 +53,18 @@ Ahora, convendría configurar la red. Para ello, desde VBox Archivo -> Herramien
 
 | ![AlmacenamientoVB](../img/P1L1/P1L1_VB_1.png) | ![RedVB](../img/P1L1/P1L1_VB_2.png) |
 |----------------------|----------------------|
+
+Posteriormente, la máquina podrá ser arrancada. Se puede seleccionar la instalación gráfica y la normal. Esta última será la elegida en este caso. Primero, se seleccionan los parámetros básicos: nombre de la máquina, contraseña del superusuario (practicas,ISE), nombre de usuario y configuración de red. 
+
+| ![Nombre_máquina](../img/P1L1/P1L1_Ma_1.png) | ![Contraseña_sudo](../img/P1L1/P1L1_Ma_2.png) |
+|----------------------|----------------------|
+
+A la hora de llegar al apartado de particionado de discos, se accede a la configuración manual, para aplicar las particiones que requiere el diseño. Inmediatamente después, se seleccionan ambos discos disponibles (sda y sdb) y se crea una tabla de particiones.
+
+| ![Particiones_manual](../img/P1L1/P1L1_Ma_3.png) | ![Tabla_Particiones](../img/P1L1/P1L1_Ma_4.png) |
+|----------------------|----------------------|
+
+Para aplicar el diseño en orden ascendente, primero se crea la partición para /boot en cada uno de los discos (en la foto inferior se muestra solo en sda, pero debe hacerse en ambos). La partición será primaria, tendrá un tamaño de 400MB y en el apartado "Utilizar como" se selecciona "no utilizar", aún no será necesario. La marca de arranque si puede ser ya activada.
+
+![/boot](../img/P1L1/P1L1_Ma_5.png)
+

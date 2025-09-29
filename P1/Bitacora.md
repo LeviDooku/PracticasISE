@@ -70,7 +70,7 @@ Para aplicar el diseño en orden ascendente, primero se crea la partición para 
 
 Una vez hecho esto, se puede pasar a configurar el RAID1 para el /boot. Para ello se selecciona la opción de "Configurar RAID por software", y se crea con las dos particiones anteriores las de 400MB. Una vez creado, debe quedar como en la primera captura. Seleccionamos esta partición del RAID y ya se puede montar el /boot, porque no se tocará más este almacenamiento.
 
-| ![RAID_Boot](../img/P1L1/P1L1_Ma_6.png) | ![Montar_/boot](../img/P1L1/P1L1_Ma_7.png) |
-|----------------------|----------------------|
+| ![RAID_Boot](../img/P1L1/P1L1_Ma_6.png) | ![Montar_/boot](../img/P1L1/P1L1_Ma_7.png) | ![Resultado](../img/P1L1/P1L1_Ma_8.png) |
+|----------------------|----------------------|----------------------|
 
 

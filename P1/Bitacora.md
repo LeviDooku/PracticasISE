@@ -77,7 +77,14 @@ Continuando con el diseño, las dos particiones disponibles se configuran en otr
 
 ![/boot](../img/P1L1/P1L1_Ma_9.png)
 
-Posteriormente, se abre el gestor de Volúmenes Lógicos y se crean md0 y md1, el primero con /boot y el otro con el espacio libre en el RAID que se creó anteriormente. Se cifra el md1, siguiendo con el diseño. Se puede ver el resultado en la segunda captura
+Posteriormente, se abre el gestor de Volúmenes Lógicos (LVM) y se crean md0 y md1, el primero con /boot y el otro con el espacio libre en el RAID que se creó anteriormente. Se cifra el md1, siguiendo con el diseño. Se puede ver el resultado en la segunda captura.
 
 | ![Cifrado](../img/P1L1/P1L1_Ma_10.png) | ![Resultado](../img/P1L1/P1L1_Ma_11.png) |
 |----------------------|----------------------|
+
+Finalmente, para terminar con el diseño, dentro del LVM cifrado, se crean los LV que se indican en el enunciado: /, /home y /swap (área de intercambio). Primero se crean y dan nombre y luego se montan correctamente.
+
+| ![LV](../img/P1L1/P1L1_Ma_12.png) | ![Resultado](../img/P1L1/P1L1_Ma_13.png) |
+|----------------------|----------------------|
+
+

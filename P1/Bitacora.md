@@ -87,4 +87,9 @@ Finalmente, para terminar con el diseño, dentro del LVM cifrado, se crean los L
 | ![LV](../img/P1L1/P1L1_Ma_12.png) | ![Resultado](../img/P1L1/P1L1_Ma_13.png) |
 |----------------------|----------------------|
 
+Una vez finalizado este proceso, se entra dentro de la máquina recién configurada y con el comando "lsblk" se puede comprobar que está montado todo de forma correcta
+
+![Comprobación](../img/P1L1/P1L1_Ma_14.png)
+
+
 

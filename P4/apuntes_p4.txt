@@ -4,3 +4,9 @@ para debian y el.
 Acceso remoto: servicio ssh.
 
 Copias de seguridad y control de versiones con git.
+
+SSH (Secure SHell)
+
+flatpak: instalar el paquete con todas sus dependencias
+
+ 

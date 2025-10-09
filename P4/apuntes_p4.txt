@@ -9,5 +9,4 @@ SSH (Secure SHell)
 
 flatpak: instalar el paquete con todas sus dependencias
 
-holaaa
  

@@ -1,4 +1,4 @@
-1. Crear sdb y sdc
+1. Crear sdb y sdc OK 
 
 2. Formatearlos fdisk /dev/sdb y /dev/sdc
 

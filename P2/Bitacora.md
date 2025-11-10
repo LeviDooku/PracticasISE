@@ -24,3 +24,11 @@ Hecho y entendido esto, se puede pasar a realizar el diseño del sistema que se 
 
 ### Diseño
 
+Teniendo en cuenta lo anterior y releyendo el enunciado, un diseño apropiado para este sistema sería:
+
+- Se tendrán dos discos físico (sda y sdb): sda se quedará con la configuración planeada en el apartado de introducción (defecto) y sdb será un disco nuevo de 10 GB en el cual se creará un PV que se le asignará al VG creado por sda con un espacio grande para /var y cumplir con el enunciado.
+
+De forma esquemática, el diseño queda de esta forma:  
+
+![DiseñoP1L2](../img/P1L2/P1L2.png)
+

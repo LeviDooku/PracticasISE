@@ -19,3 +19,8 @@ configuraremos LVM para que /var se monte en el nuevo VL que crearemos para él.
 
 Lo primero que se debe hacer es crear una máquina virtual de AlmaLinux con su configuración por defecto.
 En este caso, se le asignan 10 GB de disco a la máquina y se procede con la instalación automática, sin tocar ningún tema de almacenamiento. Eso sí, creando un root con su contraseña y un usuario. Una vez completada la instalación verificamos con el comando `lsblsk` que todo está correcto. La instalación ha creado un disco sda con 3 particiones, la primera (de 1MB) para el arranque de la BIOS, la segunda para /boot y la tercera es un PV de LVM con espacio para root y swap.
+
+Hecho y entendido esto, se puede pasar a realizar el diseño del sistema que se quiere implementar.
+
+### Diseño
+

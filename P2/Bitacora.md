@@ -49,3 +49,13 @@ Dentro de fdisk, creamos la partición, usando los switches que proporciona `fdi
 
 | ![fdisk](../img/P1L2/P1L2_fdisk.png) | ![lsblk](../img/P1L2/P1L2_fdisk_1.png) |
 |----------------------|----------------------|
+
+El siguiente paso es crear el PV a partir de la partición que se acaba de crear, sbd1:
+
+```
+man pvscreate #Siempre es recomendable visitar el manual
+sudo pvcreate /dev/sdb1 #Crear el PV
+sudo pvs    #Lista corta de los PV's creados
+sudo pvdisplay #Lista detalleda de los PV's creados
+```  
+![pv](../img/P1L2/P1L2_PV.png)

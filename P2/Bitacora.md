@@ -34,5 +34,18 @@ De forma esquemática, el diseño queda de esta forma:
 
 ### Implementación del sistema
 
-Lo primero que se debe hacer es agregar un disco a la máquina desde la ocnfiguración de la misma en VirtualBox, en este caso, sdb de 5G.
-![DiscosP1L2](../img/P1L2/P1L2_Disc.png)
+Lo primero que se debe hacer es agregar un disco a la máquina desde la ocnfiguración de la misma en VirtualBox, en este caso, sdb de 5G:  
+
+![DiscosP1L2](../img/P1L2/P1L2_Disc.png)  
+
+Ahora, se debe decidir si vale la pena crear el PV usando todo el disco o si hacer una partición. Esto último sería más recomendable, para tener espacio para metadatos o para instalar grub si fuera necesario. Para hacer la partición se usa `fdisk`:  
+
+```
+man fdisk #Siempre es recomendable visitar el manual
+sudo fdisk /dev/sdb #Para entrar a la configuración de sdb
+```  
+
+Dentro de fdisk, creamos la partición, usando los switches que proporciona `fdisk` (se pueden consultar con m). Se crea la partición, dejando unos 2MB para el apartado de metadatos y se comprueba que todo está correcto:
+
+| ![fdisk](../img/P1L2/P1L2_fdisk.png) | ![lsblk](../img/P1L2/P1L2_fdisk_1.png) |
+|----------------------|----------------------|

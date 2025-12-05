@@ -58,4 +58,24 @@ sudo pvcreate /dev/sdb1 #Crear el PV
 sudo pvs    #Lista corta de los PV's creados
 sudo pvdisplay #Lista detalleda de los PV's creados
 ```  
+
 ![pv](../img/P1L2/P1L2_PV.png)
+
+Ahora, configurado el PV, se debe extender este al VG principal, el cual en este caso se llama "almalinux". Para consultar información sobre el VG:  
+
+```
+sudo vgs
+sudo vgdisplay
+```
+
+Para realizar la expansión, se usa el comando `vgextend`:  
+
+```
+man vgextend #Siempre es recomendable visitar el manual
+#El uso del comando es: sudo vgextend <grupo de volumenes a extender> <volumen físico>:
+sudo vgextend almalinux /dev/sdb1
+sudo vgdisplay #Comprobar que todo es correcto
+```
+
+![vgextend](../img/P1L2/P1L2_vgextend.png)
+

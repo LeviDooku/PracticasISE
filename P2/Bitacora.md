@@ -98,9 +98,39 @@ Antes que nada, se debe discutir que FS le conviene mejor a /new_var. Por su est
 
 ![mkfs](../img/P1L2/P1L2_mkfs.png)
 
-- Acceder al LV y montarlo
-- Copiar la información de /var al LV, de manera atómica
-- Indicar al SO donde /var
-- Liberar espacio
+- Acceder al LV y montarlo:
 
-El primer paso es crear un punto de montaje para el LV creado y montarlo
+Primero se crea un directorio /new_var. Después, se usa el comando `mount` para montar el LV:
+
+![mount](../img/P1L2/P1L2_mount.png)
+
+- Copiar la información de /var al LV, de manera atómica:
+
+Primero, se hace la copia desde el modo maintanance: 
+
+```
+sudo systemctl isolate rescue
+sudo systemctl status #Debe aparecer modo maintanance
+```
+
+Para realizar la copia:
+
+```
+cp -a /var/. /new_var/ #Para realizar copia recursiva, consultar en man cp
+#Comprobar que la información es igual
+ls -laZ /var/  
+ls -laZ /new_var/
+```
+
+![cp](../img/P1L2/P1L2_cp.png)
+
+- Indicar al SO donde /var:
+
+Lo primero es editar el archivo fstab e indicar donde irá /var:
+
+![fstab](../img/P1L2/P1L2_fstab.png)
+
+Después se comprueba con el comando `mount` si el LV está montado. Después `umont new_var` para desmontarlo y de nuevo `mount -a` para finalmente montar el LV y terminar el ejercicio.
+
+![final](../img/P1L2/P1L2_lsblk_var.png)
+

@@ -79,3 +79,13 @@ sudo vgdisplay #Comprobar que todo es correcto
 
 ![vgextend](../img/P1L2/P1L2_vgextend.png)
 
+Hecho esto correctamente, se configura ahora el LV. De nuevo antes de nada, se pueden usar los comandos `lvs` y `lvdisplay` para ver de donde se parte. Para crear volúmenes lógicos se usa el comando `lvcreate`: 
+
+```
+man lvcreate #Siempre es recomendable visitar el manual
+#El comando completo: sudo lvcreate -n <nombre> -L <Longitud> <VG a asignar>
+sudo lvcreate -n new_var -L 3G almalinux
+sudo lvdisplay #Comprobar que todo es correcto
+```
+
+![lvcreate](../img/P1L2/P1L2_lvcreate.png)

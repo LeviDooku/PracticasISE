@@ -32,3 +32,7 @@ De forma esquemática, el diseño queda de esta forma:
 
 ![DiseñoP1L2](../img/P1L2/P1L2.png)
 
+### Implementación del sistema
+
+Lo primero que se debe hacer es agregar un disco a la máquina desde la ocnfiguración de la misma en VirtualBox, en este caso, sdb de 5G.
+![DiscosP1L2](../img/P1L2/P1L2_Disc.png)

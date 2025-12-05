@@ -89,3 +89,18 @@ sudo lvdisplay #Comprobar que todo es correcto
 ```
 
 ![lvcreate](../img/P1L2/P1L2_lvcreate.png)
+
+Terminada esta parte, solo quedarían cuestiones de SO:  
+
+Prev: crear un sistema de archivos para el LV creado:
+
+Antes que nada, se debe discutir que FS le conviene mejor a /new_var. Por su estabilidad y conveniencia para el trabajo con archivos grandes, además de por ser un estándar, se elige ext4. Para la creación se usa `mkfs`con los parámetros: `sudo mkfs -t <FS> <LV donde se va a crear>:
+
+![mkfs](../img/P1L2/P1L2_mkfs.png)
+
+- Acceder al LV y montarlo
+- Copiar la información de /var al LV, de manera atómica
+- Indicar al SO donde /var
+- Liberar espacio
+
+El primer paso es crear un punto de montaje para el LV creado y montarlo

@@ -62,3 +62,20 @@ Tras ver el éxito de los vídeos alojados en el servidor configurado en la prá
 Este escenario es similar al del ejercicio anterior. Lo que cambia es que en este caso se debe tener en cuenta que la información se debe cifrar y que siempre ha de estar disponible. Esto se refiere, como dice en la última parte del enunciado, configurar un RAID1 por software y cifrar el VL en el que la información se alojará.
 
 Para comenzar, se crea una máquina nueva con Almalinux y la configuración por defecto
+
+### Diseño
+
+Teniendo en cuenta lo anterior, el diseño a implementar será similar también al del enunciado del ejercicio 2, con algunos cambios.  
+
+El más notorio el de la implementación del RAID1. Para ello hará falta añadir dos discos físicos, sdb y sdc. 
+
+También hay que tener en cuenta el apartado del cifrado y justificar qué cifrar. En este aspecto se tienen dos enfoques válidos:  
+
+Prev: LUKS (Linux Unified Key Setup) es un estándar de cifrado de disco que cifra dispositivos de bloque completos.
+
+1. LVM on LUKS: cifrado del disco completo. No interesa del todo porque al cifrar todo el disco, incluye también directorios que no vale la pena, como /bin. 
+2. LUKS on LVM: el cifrado se hace directammente en /var. Lo que permite cifrar solo lo que es necesario.
+
+Dicho esto, el diseño del sistema quedaría algo así:  
+
+![DiseñoP1L3](../img/P1L3/P1L3.png)  

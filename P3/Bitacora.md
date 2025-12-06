@@ -143,3 +143,9 @@ sudo blkid | grep crypto > /etc/crypttab #Redirigir la salida al archivo cryptta
 Se edita el archivo para que quede de la siguiente forma, acorde con la nomenclatura:
 
 `vg_raid1-new_var_crypt UUID=<sin comillas> none`
+
+Una vez hecho esto, se libera el espacio como en el ejercicio anterior y se reinicia. El sistema pedirá la llave de paso para el VL /var.
+
+Se comprueba que todo es correcto haciendo un `lsblk`:
+
+![final](../img/P1L3/P1L3_final.png) 

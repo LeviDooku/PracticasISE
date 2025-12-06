@@ -1,45 +1,3 @@
-1. Crear sdb y sdc OK 
-
-2. Formatearlos fdisk /dev/sdb y /dev/sdc
-
-3. instalar mdadm con dnf install mdadm
-
-4. Consultar manuan mdadm. Sirve para gestionar MultiDevices
-
-5. mdam --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 para el raid1
-
-6. Comprobar que md0 ha sido creado con lsblk
-
-7. Crear Physical Volume : pvs ; pvcreate /dev/md0 ; pvs
-
-8. Crear Volume Group : vgs ; vgcreate vg_raid1 /dev/md0 ; vgs
-
-9. Crear Logical Volume : lvs ; lvcreate -L <tam 1.9GB aprox> -n new_var vg_raid1 ; lvs
-
-10. Cifrar Logical Volume (new_var) con cryptsetup : dnf install cryptsetup ; man cryptsetup ; cryptsetup luksFormat /dev/vg_raid1/new_var 
-
-11. Activar volumen cifrado (decirle al kernel que tiene la contraseña y el Volumen y montar el sistema de archivos)
-        a. cryptsetup luksOpen /dev/vg_raid1/new_var vg_raid1-new_var_crypt
-        b. Introducir contraseña
-        c. Comprobar en /dev/mapper
-
-12. Crear sistema de archivos con mkfs
-        a. mkfs -t xfs /dev/mapper/vg_raid1/vg_raid1-new_var_crypt
-
-13. Montar el Volumen Lógico con mkdir 
-        a. mkdir /mnt/new_var
-        b. mount /dev/mapper/vg_raid1-new_var_crypt /mnt/new_var
-
-14. Copiar información con systemctl y cp -a
-        a. systemclt isolate rescue
-        b. systemclt status
-        c. cp -a /var/. /mnt/new_var
-        d. ls -laZ /var
-
-15. Editar el FS anterior
-        a. nano /etc/fstab
-        b. /dev/mapper/vg_raid1-new_var_crypt   /var    xfs     dafaults        0 0
-
 16. crypttab
         a. blkid | grep LUKS >> /etc/crypttab ; Para redirigir a tabla de encriptado ; editar prefijo /dev/mapper ; 
                 Especificar UUID sin comillas ; poner none al final para especificar ninguna opción al final ; 
@@ -132,3 +90,56 @@ sudo lvcreate #Comprobar que todo OK
 ```
 
 ![lvcreate](../img/P1L3/P1L3_lvcreate.png)  
+
+Para el cifrado se usa la herramienta cryptsetup, que se debe de instalar (de la misma forma que mdadm). Sería recomendable visitar la página del manual del comando. 
+
+La sintaxis para el cifrado del LV es bastante intuitiva:  
+
+```
+sudo cryptsetup luksFormat /dev/vg_radi1/new_var #Pedirá una confirmación de reescritura y una contraseña
+```
+
+Aún no está el ejercicio acabdo, debemos acceder al volumen para activarlo:
+
+```
+sudo cryptsetup luksOpen /dev/vg_raid1/new_var vg_raid1-new_var_crypt
+ls /dev/mapper #Comprobar que todo OK, debería aparecer el volumen cifrado activado
+```
+
+El trabajo que queda es igual ahora al del ejercicio anterior, crear sistema de archivos, montar el volumen lógico etc.
+
+Como está explicado en la anterior memoria, se resume:
+
+```
+#Crear fs
+
+sudo mkfs -t ext4 /dev/mapper/vg_raid1-new_var_crypt 
+
+#Copiar información de manera atómica
+
+sudo systemctl isolate rescue
+systemctl status #Debe aparecer modo maintanance
+
+mkdir /new_var
+mount /dev/mapper/vg_raid1/vg_raid1-new_var_crypt /new_var
+
+cp -a /var/. /new_var/
+ls -laZ /var
+ls -laZ /new_var #Comprobar que tienen los mismos archivos
+
+#Indicar al SO donde irá /var, editando fstab
+
+vi /etc/fstab
+(dentro) /dev/mapper/vg_raid1-new_var_crypt   /var    ext4     dafaults        0 0
+```
+
+Ahora se debe indicar al SO que cuando arranque active el LV, para esto se usa el comando `crypttab`:
+
+```
+blkid | grep crypto #Filtrar los UUID de los cifrados
+sudo blkid | grep crypto > /etc/crypttab #Redirigir la salida al archivo crypttab
+```
+
+Se edita el archivo para que quede de la siguiente forma, acorde con la nomenclatura:
+
+`vg_raid1-new_var_crypt UUID=<sin comillas> none`

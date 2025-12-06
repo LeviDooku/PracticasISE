@@ -79,3 +79,9 @@ Prev: LUKS (Linux Unified Key Setup) es un estándar de cifrado de disco que cif
 Dicho esto, el diseño del sistema quedaría algo así:  
 
 ![DiseñoP1L3](../img/P1L3/P1L3.png)  
+
+### Implementación del sistema
+
+Partiendo de una instalación por defecto de Almalinux, lo primero que se comprueba es que toda la instalación y configuración de discos es correcta. Se apaga la máquina, y desde la configuración de VirtualBox se añaden los dos discos, sdb y sdc, cada uno de 2GB:  
+
+![inicio](../img/P1L3/P1L3_disc_inicial.png)  

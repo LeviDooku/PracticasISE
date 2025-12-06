@@ -93,3 +93,8 @@ Es recomendable consultar el manual del comando para familiarizarse con su uso.
 Antes de proceder a usar el comando, se crean las particiones en sdb y sdc usando `fdisk`, de la misma forma que en el ejercicio anterior. Debería quedar una configuración así:
 
 ![particiones](../img/P1L3/P1L3_part.png)  
+
+Ahora ya se puede crear el MD para el RAID1. En el manual se consulta el uso del comando y se procede de la siguiente manera:
+
+`mdadm --<modo> <nombre dispositivo> --level=<nivel raid> --raid-devices=<num dispositivos> <dispositivos>`
+`mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1`

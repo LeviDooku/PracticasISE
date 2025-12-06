@@ -98,5 +98,37 @@ Ahora ya se puede crear el MD para el RAID1. En el manual se consulta el uso del
 
 ```
 mdadm --<modo> <nombre dispositivo> --level=<nivel raid> --raid-devices=<num dispositivos> <dispositivos>
-mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
+sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1
 ```
+
+Una vez hecho esto, se comprueba con un `ls /dev` y/o `lsblk` que todo ha ido bien. 
+
+Ahora, a partir de md0, se crea el PV, usando `pvcreate`, de forma similar al ejercicio anterior:
+
+```
+sudo pvs
+sudo pvcreate /dev/md0
+sudo pvs #Comprobar que todo OK
+```
+
+![pvcreate](../img/P1L3/P1L3_pvcreate.png)  
+
+Posteriormente, se procede a crear el VG, usando `vgcreate`:
+
+```
+sudo vgs
+sudo vgcreate vg_raid1 /dev/md0
+sudo vgs #Comprobar que todo OK
+```
+
+![vgcreate](../img/P1L3/P1L3_vgcreate.png)  
+
+Lo único que falta ahora para completar el diseño (aparte del cifrado) es crear el LV, /var. Para ello se usa `lvcreate`
+
+```
+sudo lvs
+sudo lvcreate -n new_var -L 1.8G vg_raid1
+sudo lvcreate #Comprobar que todo OK
+```
+
+![lvcreate](../img/P1L3/P1L3_lvcreate.png)  

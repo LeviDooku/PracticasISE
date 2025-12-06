@@ -48,3 +48,9 @@
 17. mv /var /var_old ; 
 
 18. reboot ; pedirá contraseña ; iniciar sesión ; lsblk y comprobar que el diseño es correcto
+
+# Bitácora P1L3
+
+## Enunciado
+
+Tras ver el éxito de los vídeos alojados en el servidor configurado en la práctica anterior, un amigo de su cliente quiere proceder del mismo modo pero va a necesitar alojar información sensible así que le pide explícitamente que cifre la información y que ésta esté siempre disponible. Por tanto, la decisión que toma es configurar un RAID1 por software y cifrar el VL en el que /var estará alojado.

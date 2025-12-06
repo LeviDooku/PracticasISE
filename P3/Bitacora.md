@@ -85,3 +85,11 @@ Dicho esto, el diseño del sistema quedaría algo así:
 Partiendo de una instalación por defecto de Almalinux, lo primero que se comprueba es que toda la instalación y configuración de discos es correcta. Se apaga la máquina, y desde la configuración de VirtualBox se añaden los dos discos, sdb y sdc, cada uno de 2GB:  
 
 ![inicio](../img/P1L3/P1L3_disc_inicial.png)  
+
+Ahora, para crear la configuración RAID1 por software, se usa el comando `mdadm`, el cual no viene por defecto instalado en Almalinux. Para instalarlo, se usa `sudo dnf install mdadm` comprobando si la instalación es correcta y teniendo cuidado en la versión que se instala.  
+
+Es recomendable consultar el manual del comando para familiarizarse con su uso.
+
+Antes de proceder a usar el comando, se crean las particiones en sdb y sdc usando `fdisk`, de la misma forma que en el ejercicio anterior. Debería quedar una configuración así:
+
+![particiones](../img/P1L3/P1L3_part.png)  

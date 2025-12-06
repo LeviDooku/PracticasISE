@@ -1,12 +1,3 @@
-16. crypttab
-        a. blkid | grep LUKS >> /etc/crypttab ; Para redirigir a tabla de encriptado ; editar prefijo /dev/mapper ; 
-                Especificar UUID sin comillas ; poner none al final para especificar ninguna opción al final ; 
-                vg_raid1-new_var_crypt UUID=<UUID> none <---- Así tiene que quedar 
-
-17. mv /var /var_old ; 
-
-18. reboot ; pedirá contraseña ; iniciar sesión ; lsblk y comprobar que el diseño es correcto
-
 # Bitácora P1L3
 
 ## Enunciado

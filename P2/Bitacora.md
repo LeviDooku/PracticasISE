@@ -30,7 +30,9 @@ Teniendo en cuenta lo anterior y releyendo el enunciado, un diseño apropiado pa
 
 De forma esquemática, el diseño queda de esta forma:  
 
-![DiseñoP1L2](../img/P1L2/P1L2.png)
+![DiseñoP1L2](../img/P1L2/P1L2.png)  
+
+NOTA: en el diseño anterior falta el PV en sdb
 
 ### Implementación del sistema
 

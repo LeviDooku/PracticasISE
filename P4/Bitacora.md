@@ -44,4 +44,33 @@ ssh -l root <ip>
 
 ![con](../img/P2L1/P2L1_con.png)  
 
+NOTA: en la imagen no se accede como root, pero al intentarlo, pide la contraseña y aunque sea correcta, no deja acceder.
 
+Se pueden verbosear la interacción añadiento el switch -v al comando. Esto es útil para hacer debug.
+
+Otra buena práctica (pedida además por el enunciado) es cambiar el puerto por defecto del servicio, el cual es el 22.
+
+Para esto se edita el archivo de configuración ya conocido y se busca la directiva Port. Se escoge un puerto mayor al 100 (los que escanea `nmap`) y se reinicia el servicio de nuevo. 
+
+En este punto dará un error, se puede consultar exactamente el problema con `journalctl -xe`. El problema reside en que tenemos que indicar al SO de este cambio. De hecho, en la cabecera del propio archivo de configuración, aparece este detalle. Para realizar este cambio se usa el comando `semanage` que NO viene instalado por defecto en Almalinux. Después de instalarlo, se ejecuta:
+
+```
+sudo semanage port -l | grep ssh #Listar los tipos de puerto relacionados con ssh
+sudo semanage port -a -t ssh_port_t -p tcp 22022
+sudo semanage port -l | grep ssh #Comprobar que aparece el puerto 22022
+```
+
+![semanage](../img/P2L1/P2L1_semanage.png)  
+
+Al reiniciar el servicio ahora, no da errores.
+
+Pero sigue sin acceder desde la máquina anfitrión. Esto es debido al Firewall, que no permite acceso a este puerto. Al menos, esto tiene fácil solución, se debe añadir un puerto al Firewall para que permita el acceso, esto se hace mediante `firewall-cmd` una interfaz para la configuración. Previamente es recomendable consultar el manual.
+
+```
+sudo firewall-cmd --add-port 22022/tcp --permanent #Añadir el puerto de manera permanente, pero no abre el puerto por defecto
+sudo firewall-cmd --add-port 22022/tcp #Agregar el puerto
+```
+
+Ahora, sí que permite el acceso en el puerto 22022:
+
+![fin](../img/P2L1/P2L1_fin.png)  

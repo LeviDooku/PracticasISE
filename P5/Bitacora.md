@@ -98,3 +98,73 @@ El comportamiento del script será el siguiente:
 3. El resultado será un .tar en el $HOME con nombre backup_cliente_DDMMYYYY_HHMMSS
 
 
+El script resultante es el siguiente (consultable desde el propio fichero también):
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+#Configuración de variables
+
+USER_HOME="$HOME"
+BASH_HISTORY="$USER_HOME/.bash_history"
+MYSQL_HISTORY="$USER_HOME/.mysql_history"
+
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$USER_HOME/backup_cliente_${TIMESTAMP}.tar.gz"
+
+#Encontrar fichero SQL
+
+#1. Si el usuario pasa la ruta del fichero
+if [[ $# -ge 1 ]]; then
+    BD_DUMP="$1"
+    if [[ ! -f "$BD_DUMP" ]]; then
+        echo "ERROR: el fichero '$BD_DUMP' no existe" >&2
+        exit 1
+    fi
+else
+    #2. No se pasa parámetro
+    BD_DUMP=$(ls -t "$USER_HOME"/*.sql 2>/dev/null | head -n 1 || true)
+    if [[ -z "${BD_DUMP}" ]]; then 
+        echo "ERROR: no se ha proporcionado argumento ni se ha encontrado .sql en $USER_HOME" >&2
+        echo "Uso: $0 /ruta/al/fichero" >&2
+        exit 1
+    fi
+fi
+
+#Encontrar y comprobar historiales
+
+FILES=()
+
+if [[ -f "$BASH_HISTORY" ]]; then
+    FILES+=("$BASH_HISTORY")
+else
+    echo "No se ha encontrado $BASH_HISTORY" >&2
+fi
+
+if [[ -f "$MYSQL_HISTORY" ]]; then
+    FILES+=("$MYSQL_HISTORY")
+else
+    echo "No se ha encontrado $MYSQL_HISTORY" >&2
+fi
+
+#Construir el archivo
+
+FILES_BACKUP=("$BD_DUMP" "${FILES[@]}")
+
+echo "Creando backup en: $BACKUP_FILE"
+echo "Incluyendo:"
+for f in "${FILES_BACKUP[@]}"; do
+    echo " - $f"
+done
+
+#Comprimir
+
+tar -czf "$BACKUP_FILE" "${FILES_BACKUP[@]}"
+
+echo "Backup generado correctamente: "
+echo " $BACKUP_FILE"
+
+```
+
+Primero, para comprobar que funciona, se le modifican los permisos con chmod

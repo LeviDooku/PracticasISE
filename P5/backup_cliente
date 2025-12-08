@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefall
+set -euo pipefail
 
 #Configuración de variables
 
@@ -51,13 +51,13 @@ FILES_BACKUP=("$BD_DUMP" "${FILES[@]}")
 
 echo "Creando backup en: $BACKUP_FILE"
 echo "Incluyendo:"
-for f in "${FILES_BACKUP[@"]}"; do
+for f in "${FILES_BACKUP[@]}"; do
     echo " - $f"
 done
 
 #Comprimir
 
-tar -cfz "$BACKUP_FILE" "${FILES_TO_BACKUP[@]}"
+tar -czf "$BACKUP_FILE" "${FILES_BACKUP[@]}"
 
 echo "Backup generado correctamente: "
 echo " $BACKUP_FILE"

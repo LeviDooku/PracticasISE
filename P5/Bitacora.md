@@ -167,4 +167,6 @@ echo " $BACKUP_FILE"
 
 ```
 
-Primero, para comprobar que funciona, se le modifican los permisos con chmod
+Primero, para comprobar que funciona, se le modifican los permisos con chmod, después, se ejecuta `./backup_clientes`:
+
+![script](../img/P2L2/P2L2_script.png)  

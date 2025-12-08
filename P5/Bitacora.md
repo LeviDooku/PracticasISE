@@ -81,6 +81,12 @@ Tanto en la web como en la máquina se puede consultar los cambios y el históri
 | ![web](../img/P2L2/P2L2_commit.png) | ![alma](../img/P2L2/P2L2_commit_1.png) |
 |----------------------|----------------------|
 
+Por último, añadir que hay que tener cuidado a la hora de trabajar de forma simultánea, ya sea con varias máquinas o varias personas, para evitar conflictos. Una buena práctica es siempre hacer `git pull` antes de subir un cambio (en este caso concreto, en el que solo yo estoy trabajando en el repo, pero desde diferentes máquinas a la vez). De nuevo se insta al lector a consultar los manuales de GitHub, ya que son muy prácticos y útiles.
+
+Lo bueno ahora es que se puede trabajar desde la máquina anfitrión, donde se pueden usar editores de texto más "refinados" jjeje viva la informática y los ordenadore
+
+Ahora se configura el script:
+
 Prev: preparar el laboratorio, creando los archivos necesarios. (BD.sql)
 
 Lo primero será realizar el script. Se elige bash para esto. 
@@ -90,3 +96,5 @@ El comportamiento del script será el siguiente:
 1. Parámetro opcional: al volcado de la BD. Si no se especifica, busca en el $HOME, si no encuentra .sql, da error.
 2. El script intenta siempre incluir los ficheros con los historiales
 3. El resultado será un .tar en el $HOME con nombre backup_cliente_DDMMYYYY_HHMMSS
+
+

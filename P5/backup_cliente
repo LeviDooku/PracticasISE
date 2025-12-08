@@ -1,1 +1,30 @@
-# Script
+#!/usr/bin/env bash
+set -euo pipefall
+
+#Configuración de variables
+
+USER_HOME="$HOME"
+BASH_HISTORY="$USER_HOME/.bash_history"
+MYSQL_HISTORY="$USER_HOME/.mysql_history"
+
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$USER_HOME/backup_cliente_${TIMESTAMP}.tar.gz"
+
+#Encontrar fichero SQL
+
+#1. Si el usuario pasa la ruta del fichero
+if [[ $# -ge 1 ]]; then
+    BD_DUMP="$1"
+    if [[ ! -f "$BD_DUMP" ]]; then
+        echo "ERROR: el fichero '$BD_DUMP' no existe" >&2
+        exit 1
+    fi
+else
+    #2. No se pasa parámetro
+    BD_DUMP=$(ls -t "$USER_HOME"/*.sql 2>/dev/null | head -n 1 || true)
+    if [[ -z "${BD_DUMP}" ]]; then 
+        echo "ERROR: no se ha proporcionado argumento ni se ha encontrado .sql en $USER_HOME" >&2
+        echo "Uso: $0 /ruta/al/fichero" >&2
+        exit 1
+    fi
+fi

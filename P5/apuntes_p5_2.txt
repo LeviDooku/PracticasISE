@@ -1,3 +1,0 @@
-Lección 2 P2:
-
-Pila software LAMP : Linux Apache MySQL Python PhP

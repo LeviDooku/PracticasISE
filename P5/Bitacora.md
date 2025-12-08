@@ -170,3 +170,35 @@ echo " $BACKUP_FILE"
 Primero, para comprobar que funciona, se le modifican los permisos con chmod, después, se ejecuta `./backup_clientes`:
 
 ![script](../img/P2L2/P2L2_script.png)  
+
+Ahora que esto funciona, el último apartado pide que este contenido sea descargable mediante `rsync`. En Almalinux no está instalado por defecto, asi que el primer paso es instalarlo.
+
+Posteriormente sería recomendables visitar el manual. Luego se hace la prueba previa que pide el enunciado:
+
+```
+mkdir -p ~/prueba_rsync
+echo "prueba" > ~/prueba_rsync/prueba.txt
+```
+
+Ahora desde otra máquina:
+
+```
+mkdir -p ~/prueba_rsync_copia
+rsync -avz --progress -e "ssh -p 22022" pedrovs@192.168.1.134.com:/home/pedrovs/prueba_rsync/ ~/prueba_rsync_copia/
+```
+
+El resultado debería ser el siguiente:
+
+![rsync](../img/P2L2/P2L2_rsync.png)  
+
+Desglosando el comando:
+
+- rsync: nombre del programa
+- Opciones -avz: 
+    1. a: archive, modo archivo, copia recursivamente directorios conveservando permisos, fechas etc.
+    2. v: verbose, muestra por pantalla lo q hace
+    3. z: compress, comprime los datos durante el envío
+- Opción --progress: muestra el progreso de cada archivo
+- Opción -e "ssh -p 22022": especifica a rsync como conectarse al host, en este caso necesario, ya que se cambió el puerto por defecto
+- pedrovs@192.168.1.134.com:/home/pedrovs/prueba_rsync/: indica el usuario y la ruta de los archivos en el host remoto
+- ~/prueba_rsync_copia/: indica donde se pondrán esos archivos en la máquina que ejecuta el comando

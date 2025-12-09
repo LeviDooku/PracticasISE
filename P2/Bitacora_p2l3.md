@@ -62,3 +62,12 @@ Antes, para saber que instalar exactamente se usa `dnf search mariadb`. Dentro d
 Ejecutando ahora `sudo mysql_secure_installation` se accede a aspectos de seguridad que son importantes tener en cuenta, como desactivar el acceso remoto del root o eliminar usuarios anónimos, así como recargar privilegios y borrar las tablas de testeo.
 
 ![mariadb](../img/P2L3/P2L3_mariadb_1.png)
+
+MariaDB ha sido instalado de forma correcta. Ahora el último punto de la pila, PHP y sus módulos necesarios para la integración con Apache. Se hace la misma "investigación" que con MariaDB, usando los comandos search e info.
+
+Finalmente se instala:
+
+```
+sudo dnf install php php-mysqlnd php-cli php-common
+sudo systemctl restart httpd #Reiniciar Apache para que cargue PHP
+```

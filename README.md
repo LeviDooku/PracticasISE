@@ -7,3 +7,5 @@
 - [Bitacora P1L3](P1/Bitacora_p1l3.md)
 - [Bitacora P2L1](P2/Bitacora_p2l1.md)
 - [Bitacora P2L2](P2/Bitacora_p2l2.md)
+- [Bitacora P2L3](P2/Bitacora_p2l3.md)
+

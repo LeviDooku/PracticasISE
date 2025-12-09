@@ -53,3 +53,12 @@ curl http://localhost
 
 ![curl](../img/P2L3/P2L3_curl.png)
 
+El siguiente paso es continuar con la instalación de apartados de la pila, instalando ahora MariaDB.
+
+Antes, para saber que instalar exactamente se usa `dnf search mariadb`. Dentro de la lista existe una opción `mariadb-server`. Se instala esa después de comprobar con `dnf info mariadb-server`. Como se hizo con apache, se activa e inicia el servicio.
+
+![mariadb](../img/P2L3/P2L3_mariadb.png)
+
+Ejecutando ahora `sudo mysql_secure_installation` se accede a aspectos de seguridad que son importantes tener en cuenta, como desactivar el acceso remoto del root o eliminar usuarios anónimos, así como recargar privilegios y borrar las tablas de testeo.
+
+![mariadb](../img/P2L3/P2L3_mariadb_1.png)

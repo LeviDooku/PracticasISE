@@ -71,3 +71,48 @@ Finalmente se instala:
 sudo dnf install php php-mysqlnd php-cli php-common
 sudo systemctl restart httpd #Reiniciar Apache para que cargue PHP
 ```
+
+Para comprobar que funciona correctamente se puede crear un fichero de prueba. El documento root se encuentra en `/var/www/html`. Se puede editar poniendo la siguiente sentencia:
+
+```
+sudo vi /var/www/html/info.php
+
+#Dentro se escribe:
+
+<?php phpinfo(); ?>
+
+#Después de guardar y salir
+
+curl http://localhost/info.php
+```
+
+La salida, similar a la anterior probando Apache, comprueba que se estan sirviendo páginas y que además está pasando los .php a PHP. Por ende, PHP está funcionando correctamente:
+
+![php](../img/P2L3/P2L3_php.png)
+
+La única relación que falta comprobar es la de PHP con MariaDB. Para ello, se puede hacer un archivo de testeo en el mismo directorio de antes.
+
+```
+sudo vi /var/www/html/test_db.php
+```
+```php
+<?php
+$host = "localhost";
+$user = "webuser"; //Este usuario ha sido creado para poder acceder, con root me daba problemas no sé bien por qué
+$pass = "practicas,ISE";
+try {
+    $pdo = new PDO("mysql:host=$host", $user, $pass);
+    echo "Conexión a MariaDB OK";
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
+}
+```
+
+Al hacer curl:
+
+![php](../img/P2L3/P2L3_phpdb.png)
+
+Finalmente, se puede concluir que la pila LAMP ha sido correctamente instalada y configurada
+
+
+

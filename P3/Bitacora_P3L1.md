@@ -81,3 +81,24 @@ Bien, ahora queda configurar el propio Zabbix. En el apartado de configuración 
 Cuando se termine la configuración, se ingresa como 'Admin' con contraseña 'zabbix' y debe aparecer el siguiente panel:
 
 ![zabbix](../img/P3L1/P3L1_zabbix_1.png)
+
+Bien, ahora hay que instalar el agente en Alma. El proceso es prácticamente similar a lo explicado, eligiendo en la web Almalinux y agente. Se retoma cuando haya cambios. (Hay cambios desde el principio, pero están explicados en la web)
+
+Con un systemctl se comprueba que el proceso está corriendo correctamente.
+
+Se debe ahora hacer que Debian monitoree esta máquina. Para ello, se edita el fichero `/etc/zabbix/zabbix_agentd.conf`:
+
+```bash
+Server='IP del server Debian'
+ServerActive='IP Almalinux'
+Hostname='Nombre (opcional, defecto es Zabbix Host)'
+```
+
+Reiniciamos el servicio con systemctl.
+
+De vuelta en la UI de Zabbix, vamos a la ventana Recopilación de datos -> Equipos -> Crear equipo
+
+![zabbix](../img/P3L1/P3L1_equipo.png)
+
+Cuando se cree el host, se debe configurar el firewall de Almalinux para poder abrir los puertos, los que interesan son el 22, 80 (ssh y http) y 10050. Este ultimo es el de Zabbix server. Se usa el comando `firewall-cmd` como en las prácticas anteriores. Ahora Alma y Debian se conocen.
+

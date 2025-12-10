@@ -75,3 +75,9 @@ systemctl enable zabbix-server zabbix-agent apache2
 Finalmente, desde un navegador, se comprueba que todo es correcto haciendo `http://IP/zabbix`
 
 ![zabbix](../img/P3L1/P3L1_zabbix.png)
+
+Bien, ahora queda configurar el propio Zabbix. En el apartado de configuración de la BD, en la contraseña poner practica,ISE. 
+
+Cuando se termine la configuración, se ingresa como 'Admin' con contraseña 'zabbix' y debe aparecer el siguiente panel:
+
+![zabbix](../img/P3L1/P3L1_zabbix_1.png)

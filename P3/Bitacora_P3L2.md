@@ -71,4 +71,9 @@ La salida debería ser:
 
 ![ansible](../img/P3L2/P3L2_ansibleok.png)
 
+Se puede probar también comandos:
 
+| ![fast](../img/P3L2/P3L2_fast.png) | ![lsblk](../img/P3L2/P3L2_lsblk.png) |
+|----------------------|----------------------|
+
+Genial, ahora Debian se puede comunicar con Alma.

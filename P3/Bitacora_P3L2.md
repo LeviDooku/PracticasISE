@@ -12,6 +12,8 @@ También debe ser consciente de la posibilidad de escribir acciones más complej
 
 Ansible es una herramienta de administración de máquinas. Donde una máquina de control es capaz de controlar varias a la vez, usando ssh y ficheros. Para acciones más complejas se usan playbooks escritos en YAML, donde se pueden configurar aspectos más complejos.
 
+Lo bueno que tiene Ansible frente a simplemente conectarse por ssh es que se pueden monitorear varias máquinas a la vez, en este ejercicio puede parecer redundante usar Ansible para monitorear solo una máquina, pero en un entorno real donde se controlan varios servidores a la vez, es muy útil y da pie a menos errores humanos
+
 ## Diseño
 
 Primero se instala y configura Ansible en la máquina que hará de nodo de control. Esta máquina podría ser incluso el ordeador personal desde donde se hostean las VM, pero para no complicarlo, se escoge a Debian como máquina de control y Almalinux como la máquina que se monitorea.  
@@ -117,4 +119,4 @@ Para corroborar que la salida es correcta, se puede hacer un systemctl status en
 
 La información es coherente en ambas salidas. 
 
-Con esto se da por terminado el ejercicio
+Con esto se da por terminado el ejercicio.

@@ -100,5 +100,20 @@ De vuelta en la UI de Zabbix, vamos a la ventana Recopilación de datos -> Equip
 
 ![zabbix](../img/P3L1/P3L1_equipo.png)
 
-Cuando se cree el host, se debe configurar el firewall de Almalinux para poder abrir los puertos, los que interesan son el 22, 80 (ssh y http) y 10050. Este ultimo es el de Zabbix server. Se usa el comando `firewall-cmd` como en las prácticas anteriores. Ahora Alma y Debian se conocen.
+Cuando se cree el host, se debe configurar el firewall de Almalinux para poder abrir los puertos, los que interesan son el 22022, 80 (ssh y http) y 10050. Este ultimo es el de Zabbix server. Se usa el comando `firewall-cmd` como en las prácticas anteriores. Si se configuró bien en su momento, solo hará falta añadir el 80 y el 10050. Ahora Alma y Debian se conocen.
+
+Esto se puede corroborar en la UI de Zabbix, en la página de Equipos debe poner que la máquina está activa.
+
+Ahora falta configurar el monitoreo de ssh y http y comprobar que efectivamente funciona.
+
+Para ello, se pincha en el Host Alma y se pulsa en métricas para añadir una nueva. Como no hay plantillas que hagan exactamente lo que se pide, en la documentación de Zabbix viene explicado, en concreto en las páginas 5 y 9 del manual. Hay que usar en el apartado de 'Clave' `net.tcp.service[<protocolo>,ip,<puerto>]` La ip no es necesaria porque coge la de Alma.
+
+| ![ssh](../img/P3L1/P3L1_ssh.png) | ![http](../img/P3L1/P3L1_http.png) |
+|----------------------|----------------------|
+
+NOTA: en ssh se especifica el puerto 22, eso fue antes de darme cuenta que estaba en el 22022
+
+Para comprobr que el monitoreo es correcto se consultan las medidas recientes en el apartado de monitorización.
+
+![fin](../img/P3L1/P3L1_todook.png)
 

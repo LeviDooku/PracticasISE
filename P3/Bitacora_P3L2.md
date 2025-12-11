@@ -6,8 +6,7 @@ Usted deberá saber cómo instalar y configurar Ansible para poder hacer
 un ping a las máquinas virtuales de los servidores y ejecutar un comando básico (p.ej.
 el script de monitorización del RAID1). 
 
-También debe ser consciente de la posibilidad de escribir acciones más complejas mediante playbooks escritos con YAML como, por ejemplo, asegurarse de que tenemos la última verisón instalada de httpd y que está en
-ejecución.
+También debe ser consciente de la posibilidad de escribir acciones más complejas mediante playbooks escritos con YAML como, por ejemplo, asegurarse de que tenemos la última verisón instalada de httpd y que está en ejecución.
 
 ## Introducción y conceptos
 
@@ -76,4 +75,46 @@ Se puede probar también comandos:
 | ![fast](../img/P3L2/P3L2_fast.png) | ![lsblk](../img/P3L2/P3L2_lsblk.png) |
 |----------------------|----------------------|
 
-Genial, ahora Debian se puede comunicar con Alma.
+Genial, ahora se sabe que Debian se puede comunicar con Alma correctamente.
+
+La otra parte del ejercicio consiste en realizar un playbook. Se crea en el mismo directorio /ansible.
+
+```YAML
+vi httpd.yml
+
+- name: Asegurar que httpd está instalado y en ejecución en Almalinux
+  hosts: almalinux
+  become: yes
+
+  tasks:
+   - name: Instalar httpd en última versión
+     ansible.builtin.yum:
+      name: httpd
+      state: latest
+
+   - name: Asegurar que el servicio está levantado y corriendo
+     ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: yes
+```
+
+Para probarlo: 
+
+```
+ansible-playbook -i hosts httpd.yml -K
+
+#IMPORTANTE: el switch -K es para que pida la contraseña de sudoer cuando la necesite, recordar que 'pedrovs' no es root, y que no se puede conectar como root por ssh. El comando pedirá la contraseña y posteriormente ejecuta el playbook
+```
+
+La salida:
+
+![playbook](../img/P3L2/P3L2_playbook.png)
+
+Para corroborar que la salida es correcta, se puede hacer un systemctl status en Alma o conectarse por ssh desde Debian y hacerlo:
+
+![system](../img/P3L2/P3L2_system.png)
+
+La información es coherente en ambas salidas. 
+
+Con esto se da por terminado el ejercicio

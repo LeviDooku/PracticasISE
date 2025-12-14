@@ -56,7 +56,15 @@ Los resultados de este benchmarks en ambas distros:
 | ![debian](../img/P4L1/P4L1_compress_d.png) | ![alma](../img/P4L1/P4L1_compress_a.png) |
 |----------------------|----------------------|
 
-Para el benchmark ctx-cpu, mismos comandos, el resultado es:
+Para el benchmark ctx-clock, mismos comandos, el resultado es:
 
 | ![debian](../img/P4L1/P4L1_clock_d.png) | ![alma](../img/P4L1/P4L1_clock_a.png) |
 |----------------------|----------------------|
+
+Comparativa:
+
+En el primer benchmark, el de compresión y descompresión, Debian rinde mucho más en ambos aspectos. Aproximadamente el doble que Almalinux. Las desviaciones en ambos experimeentos son menores al 3%, lo que es un resultado bastante fiable. Esta diferencia se puede achacar a una configuración distinta del kernel o que habían más hilos disponibles en ese momento en Debian. 
+
+De igual forma, según la información de openbenchmarking.org, la mediana global para este test es de 90k MIPS, muy por debajo de los resultados obtenidos. Esto es normal y esperable ya que son máquinas virtuales con unas características muy limitadas.
+
+En el ctx-clock, en el que se miden latencias de cambios de contexto, coste de llamadas al reloj del sistema etc. Debian sigue siendo mejor que Alma, con una diferencia absoluta de 30 ciclos. De nuevo ambos sistemas dan peor resultado que la mediana global, por los motivos antes expuestos 

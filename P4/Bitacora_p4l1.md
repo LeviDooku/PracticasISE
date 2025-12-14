@@ -42,4 +42,17 @@ phoronix-test-suite list-recommended-tests # Recomendados para el SO
 
 ![recomendados](../img/P4L1/P4L1_test.png)
 
+Ahora, con el comando info, se puede consultar la información de los test listados y en ocasiones, lista lo que le falta para poder hacer esas pruebas. Después de instalar las cosas faltantes:
+
+```
+# El de compresión priemero, que es el que hay que instalar dependencias
+
+phoronix-test-suite install pts/compress-7zip # Tarda un ratin
+phoronix-test-suite run pts/compress-7zip
+```
+
+Los resultados de este benchmarks en ambas distros:
+
+| ![debian](../img/P4L1/P4L1_compress_d.png) | ![alma](../img/P4L1/P4L1_compress_a.png) |
+|----------------------|----------------------|
 

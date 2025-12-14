@@ -18,7 +18,7 @@ Para ver los benchmarks disponibles se puede consultar openbenchmarking.org, tam
 
 Los test que se eligen son fáciles y rápidos:
 
-1. Cpu: para pruebas sintéticas de cpu
+1. ctx-clock: microbenchmark de CPU, sirve para comparar eficiencia del kernel y el coste del SO sobre CPU. Además no necesita muchas dependencias
 2. 7zip: para compresión y descompresión de archivos
 
 ## Implementación del sistema
@@ -56,3 +56,7 @@ Los resultados de este benchmarks en ambas distros:
 | ![debian](../img/P4L1/P4L1_compress_d.png) | ![alma](../img/P4L1/P4L1_compress_a.png) |
 |----------------------|----------------------|
 
+Para el benchmark ctx-cpu, mismos comandos, el resultado es:
+
+| ![debian](../img/P4L1/P4L1_clock_d.png) | ![alma](../img/P4L1/P4L1_clock_a.png) |
+|----------------------|----------------------|

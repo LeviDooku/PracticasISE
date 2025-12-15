@@ -52,7 +52,7 @@ Se comprueba que la API responde en el puerto 3000 haciendo curl o entrando en u
 
 Según el README del repo, el flujo es el siguiente:
 
-1. /auth/login: se autentica como alumno o admin y si las credenciales son correctas, la API devuelve un JWT (JSON Web Token)
+1. /auth/login: se autentica como alumno o admin y si las credenciales son correctas, la API devuelve un JWT (JSON Web Token)f
 2. /alumnos/alumno: devuelve el expediente de un alumno, para acceder hace falta el token del login
 
 Para comprobar que funciona, se ejecuta el script que incluye el repo, que hace la prueba usando curl. Al hacerlo, devuelve el JSON, por ende este flujo es correcto y funciona bien.

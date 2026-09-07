@@ -8,17 +8,15 @@ The practices are documented through detailed technical logs (*bitácoras*), inc
 
 ## Topics
 
-Throughout these practices, I worked with technologies and concepts related to:
+Throughout these practices, I worked with technologies and concepts related to (among others):
 
 - Linux system administration
 - Server deployment and configuration
 - SSH and remote administration
 - RAID storage systems
-- Networking
 - Firewalls
 - System monitoring
 - Zabbix
-- Grafana
 - Ansible
 - Performance benchmarking with Phoronix Test Suite
 

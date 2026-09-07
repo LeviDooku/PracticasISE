@@ -51,7 +51,7 @@ Linux • SSH • RAID • Networking • Firewalls
 
 **Monitoring & Automation**
 
-Zabbix • Grafana • Ansible
+Zabbix • Ansible
 
 **Performance Analysis**
 

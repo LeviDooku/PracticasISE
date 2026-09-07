@@ -1,14 +1,64 @@
-# PracticasISE
+# Server Engineering Practices
 
-## Directorios
+A collection of hands-on laboratory practices completed as part of the **Server Engineering** course at the **University of Granada**.
 
-- [Bitacora P1L1](P1/Bitacora_p1l1.md)
-- [Bitacora P1L2](P1/Bitacora_p1l2.md)
-- [Bitacora P1L3](P1/Bitacora_p1l3.md)
-- [Bitacora P2L1](P2/Bitacora_p2l1.md)
-- [Bitacora P2L2](P2/Bitacora_p2l2.md)
-- [Bitacora P2L3](P2/Bitacora_p2l3.md)
-- [Bitacora P3L1](P3/Bitacora_P3L1.md)
-- [Bitacora P3L2](P3/Bitacora_P3L2.md)
-- [Bitacora P4L1](P4/Bitacora_p4l1.md)
-- [Bitacora P4L2](P4/Bitacora_p4l2.md)
+This repository documents practical work focused on **Linux system administration, server infrastructure, networking, monitoring, automation and performance analysis**.
+
+The practices are documented through detailed technical logs (*bitácoras*), including configuration steps, commands, explanations and screenshots.
+
+## Topics
+
+Throughout these practices, I worked with technologies and concepts related to:
+
+- Linux system administration
+- Server deployment and configuration
+- SSH and remote administration
+- RAID storage systems
+- Networking
+- Firewalls
+- System monitoring
+- Zabbix
+- Grafana
+- Ansible
+- Performance benchmarking with Phoronix Test Suite
+
+## Repository Structure
+
+The repository is organized into several practical assignments:
+
+- **P1** – Server infrastructure and system administration
+- **P2** – Server deployment and configuration
+- **P3** – Monitoring and infrastructure management
+- **P4** – Performance analysis and benchmarking
+
+Each practice includes detailed documentation describing the implementation process, technical decisions and results.
+
+## Documentation
+
+The repository contains a collection of technical logs documenting the practical work step by step.
+
+These logs include:
+
+- Configuration procedures
+- Commands and scripts
+- Screenshots
+- Technical explanations
+- Problems encountered and their solutions
+
+## Technologies
+
+**Operating Systems & Infrastructure**
+
+Linux • SSH • RAID • Networking • Firewalls
+
+**Monitoring & Automation**
+
+Zabbix • Grafana • Ansible
+
+**Performance Analysis**
+
+Phoronix Test Suite
+
+---
+
+*Academic work completed as part of the Computer Engineering degree at the University of Granada.*
